@@ -433,6 +433,8 @@ DWORD	CompleteRecvPacket(void)
 
 	iRecvQSize = g_netRecvQ.GetUseSize();
 
+
+
 	//-----------------------------------------------------------------
 	// 받은 내용을 검사해야한다. 그런데 패킷헤더 크기 이상으로
 	// 뭔가 받은경우가 아니라면 검사 해볼 껀덕지 조차 없다.. 
@@ -452,6 +454,7 @@ DWORD	CompleteRecvPacket(void)
 	// 제자리에 넣어야 하는데.. FIFO 이므로 그게 안된다;
 	//-----------------------------------------------------------------
 	g_netRecvQ.Peek((char*)&stPacketHeader, dfNETWORK_PACKET_HEADER_SIZE);
+
 
 	if ( dfNETWORK_PACKET_CODE != stPacketHeader.byCode ) 
 		return 0xff;
